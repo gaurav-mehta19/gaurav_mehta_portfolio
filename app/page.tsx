@@ -7,7 +7,7 @@ import ContactCapsule from '../components/ContactCapsule';
 
 export default function Home() {
   return (
-    <main className="min-h-screen bg-[var(--primary-bg)] text-[var(--text-primary)]">
+    <main>
       <Hero />
       <Experience />
       <Projects />
