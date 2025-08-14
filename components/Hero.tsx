@@ -81,7 +81,7 @@ export default function Hero() {
                 >
                   <button
                     type="button"
-                    className="min-h-12 min-w-52  border border-slate-600/30 bg-gray-300  text-black font-semibold text-lg backdrop-blur-sm rounded-lg hover:border-slate-500/80 transition-all duration-300 cursor-pointer shadow-lg hover:shadow-xl"
+                    className="min-h-12 min-w-52 border border-slate-600/30 bg-gray-300 text-black font-semibold text-lg backdrop-blur-sm rounded-lg hover:border-slate-500/80 hover:bg-white hover:scale-105 hover:shadow-2xl hover:shadow-blue-500/20 transition-all duration-300 cursor-pointer shadow-lg transform"
                   >
                     Download Resume
                   </button>
