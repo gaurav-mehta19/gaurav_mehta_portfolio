@@ -1,19 +1,13 @@
 'use client';
 
 import { motion } from 'framer-motion';
-import { GithubIcon as Github, ExternalLink } from 'lucide-react';
+import { Github, ExternalLink } from 'lucide-react';
 
-interface ProjectFeature {
-  name: string;
-  color: string;
-}
 
 interface Project {
   title: string;
   subtitle: string;
   description: string;
-  emoji: string;
-  features: ProjectFeature[];
   github: string;
   demo: string;
 }
@@ -23,40 +17,27 @@ export default function Projects() {
     {
       title: "Payment Wallet (InstantPay)",
       subtitle: "Full-Stack Fintech Platform",
-      description: "Full-stack fintech monorepo with 3 microservices. Features secure P2P payment system with atomic transactions and real-time money transfers using Next.js and Turborepo.",
-      emoji: "💳",
-      features: [
-        { name: "Prisma ACID compliance", color: "text-green-400" },
-        { name: "NextAuth.js auth", color: "text-green-400" },
-        { name: "PostgreSQL schema", color: "text-green-400" },
-        { name: "Production webhooks", color: "text-green-400" },
-        { name: "React optimization", color: "text-green-400" },
-        { name: "Recoil state mgmt", color: "text-green-400" }
-      ],
+      description: "Of course. Here is the summary rewritten from a first-person perspective:I engineered a full-stack fintech monorepo using Turborepo to manage a Next.js application and multiple microservices. The core of this project was a secure P2P payment system featuring atomic transactions, which were made reliable and ACID-compliant using Prisma and PostgreSQL.I also built a robust security layer with NextAuth.js, JWTs, and Zod validation, alongside a production-ready Express.js webhook service for processing real-time transaction updates. On the frontend, I focused on performance by creating optimized React components, managing state with Recoil, and visualizing data with Recharts.",
       github: "https://github.com/gaurav-mehta19/InstantPay",
       demo: "https://instant-pay-user-app-gaurav-mehtas-projects-7afab221.vercel.app"
     },
     {
       title: "Medium Website Clone",
       subtitle: "Full-Stack Blog Platform",
-      description: "Medium clone built with React 18/TypeScript and Cloudflare Workers backend. Features JWT authentication, rich text editor, and enterprise-grade security.",
-      emoji: "📝",
-      features: [
-        { name: "Cloudflare Workers", color: "text-purple-400" },
-        { name: "Enterprise security", color: "text-purple-400" },
-        { name: "Rich text editor", color: "text-purple-400" },
-        { name: "Global edge deploy", color: "text-purple-400" },
-        { name: "Recoil state mgmt", color: "text-purple-400" },
-        { name: "TypeScript NPM", color: "text-purple-400" }
-      ],
+      description: "Of course, here is the summary in the first person:I developed a full-stack, serverless Medium clone using React 18 and TypeScript for the frontend and Cloudflare Workers for the backend, all connected to a PostgreSQL database.I engineered a scalable, serverless architecture on Cloudflare's global edge network, featuring RESTful APIs, the Prisma ORM, and connection pooling for high performance. The application ensures enterprise-grade security with JWT authentication, bcrypt.js password hashing, and robust XSS protection. For an enhanced user experience, I implemented custom state management with Recoil, created a shared NPM package for TypeScript types, and built features like protected routing, a rich text editor, image uploads, and skeleton loading states",
       github: "https://github.com/gaurav-mehta19/Blog-website",
       demo: "https://blog-website-hlzm.vercel.app/"
     }
   ];
 
+  const videos = [
+    { src: "/instantPay.mp4", title: "InstantPay Demo" },
+    { src: "/medium_blog.mp4", title: "Medium Blog Demo" }
+  ];
+
   return (
-    <section className="py-24 px-8 md:px-16">
-      <div className="max-w-6xl mx-auto">
+    <section className="py-24 px-8 md:px-16 flex justify-end items-center">
+      <div className="w-full max-w-7xl mx-auto">
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -64,13 +45,11 @@ export default function Projects() {
           transition={{ duration: 0.8 }}
           className="text-center mb-16"
         >
-          <h2 className="text-4xl md:text-5xl font-bold text-white mb-4">Featured Projects</h2>
-          <p className="text-xl text-slate-400 max-w-2xl mx-auto">
-            Innovative solutions built with modern technologies
-          </p>
+          <h2 className="text-2xl md:text-3xl min-h-20 flex items-center justify-start font-bold text-white mb-4">Featured Projects</h2>
+
         </motion.div>
 
-        <div className="grid lg:grid-cols-2 gap-8">
+        <div className="space-y-12">
           {projects.map((project, index) => (
             <motion.div
               key={project.title}
@@ -78,45 +57,26 @@ export default function Projects() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.8, delay: index * 0.2 }}
-              className="bg-slate-800/50 backdrop-blur-sm border border-slate-700 rounded-2xl p-8 hover:border-slate-600 transition-colors"
+              className="bg-transparent backdrop-blur-sm  rounded-2xl p-8 hover:border-slate-600 transition-colors"
             >
-              <div className="space-y-6">
-                <div className="flex items-start justify-between">
+              <div className="space-y-6 max-w-5xl min-h-[380px] flex flex-col items-center justify-start">
+
+                 <div className="w-full flex items-start justify-between">
                   <div>
-                    <h3 className="text-2xl font-bold text-white mb-2">
+                    <h3 className="text-xl font-bold text-white mb-2">
                       {project.title}
                     </h3>
-                    <p className={project.title.includes('InstantPay') ? 'text-blue-400' : 'text-purple-400'}>
+                    <p className="text-blue-400">
                       {project.subtitle}
                     </p>
                   </div>
-                  <div className="text-3xl">{project.emoji}</div>
-                </div>
 
-                <p className="text-slate-300 leading-relaxed">
-                  {project.description}
-                </p>
-
-                <div className="space-y-3">
-                  <h4 className="text-lg font-semibold text-white">
-                    {project.title.includes('InstantPay') ? 'Key Features' : 'Technical Highlights'}
-                  </h4>
-                  <div className="grid grid-cols-2 gap-2">
-                    {project.features.map((feature, featureIndex) => (
-                      <div key={featureIndex} className="flex items-center gap-2 text-sm text-slate-400">
-                        <span className={`${feature.color} text-xs`}>●</span>
-                        <span>{feature.name}</span>
-                      </div>
-                    ))}
-                  </div>
-                </div>
-
-                <div className="flex gap-3 pt-2">
+                  <div className="flex gap-3 pt-2">
                   <a
                     href={project.github}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="inline-flex items-center gap-2 px-4 py-2 bg-white text-slate-900 rounded-lg text-sm font-medium hover:bg-slate-100 transition-colors"
+                    className=" w-32 h-10 flex justify-center items-center gap-2 px-4 py-2 bg-white text-slate-900 rounded-lg text-md font-medium hover:bg-slate-100 transition-colors"
                   >
                     <Github size={16} />
                     Code
@@ -125,12 +85,36 @@ export default function Projects() {
                     href={project.demo}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="inline-flex items-center gap-2 px-4 py-2 border border-slate-600 text-white rounded-lg text-sm font-medium hover:border-slate-500 transition-colors"
+                    className="w-32 h-10 flex justify-center items-center gap-2 px-4 py-2 border border-slate-600 text-white rounded-lg text-sm font-medium hover:border-slate-500 transition-colors"
                   >
                     <ExternalLink size={16} />
                     Demo
                   </a>
                 </div>
+                </div>
+
+
+                <div className="w-full mb-6 flex justify-center gap-10 items-center">
+                   <p className="text-slate-300 max-w-[600px] leading-relaxed">
+                  {project.description}
+                </p>     
+                  <video
+                    className="w-[400px] h-96 md:h-auto  object-cover rounded-xl"
+                    autoPlay
+                    loop
+                    muted
+                    playsInline
+                    preload="metadata"
+                  >
+                    <source src={videos[index]?.src} type="video/mp4" />
+                    Your browser does not support the video tag.
+                  </video>
+                    
+                </div>
+
+               
+
+              
               </div>
             </motion.div>
           ))}

@@ -1,18 +1,16 @@
 
 import Hero from '../components/Hero';
-import Experience from '../components/Experience';
-import Projects from '../components/Projects';
+import ExperienceProjects from '../components/ExperienceProjects';
 import TechnicalSkills from '../components/TechnicalSkills';
-import ContactCapsule from '../components/ContactCapsule';
+import { VerticalFloatingDock } from '../components/ui/VerticalFloatingDock';
 
 export default function Home() {
   return (
-    <main>
+    <main className="relative">
       <Hero />
-      <Experience />
-      <Projects />
+      <ExperienceProjects />
       <TechnicalSkills />
-      <ContactCapsule />
+      <VerticalFloatingDock />
     </main>
   );
 }
