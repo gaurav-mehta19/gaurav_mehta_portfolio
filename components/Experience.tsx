@@ -91,7 +91,7 @@ export default function Experience() {
                     </div>
                     
                     {/* Achievement Text */}
-                    <p className="text-md xs:text-base text-slate-300 max-w-6xl leading-relaxed group-hover/item:text-slate-200 transition-colors duration-300">
+                    <p className="text-md xs:text-base text-slate-300 max-w-[350px] xs:max-w-[400px] sm:max-w-[500px] lg:max-w-6xl leading-relaxed group-hover/item:text-slate-200 transition-colors duration-300">
                       {achievement}
                     </p>
                   </motion.div>

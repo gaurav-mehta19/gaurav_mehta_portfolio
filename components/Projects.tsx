@@ -67,10 +67,10 @@ export default function Projects() {
               className="relative group"
             >
               {/* Main Project Card */}
-              <div className="relative p-4 xs:p-6 sm:p-8 lg:p-12 max-w-6xl min-h-[500px] xs:min-h-[550px]">
+              <div className="relative p-4 xs:p-6 sm:p-8 lg:p-12 max-w-4xl sm:max-w-6xl min-h-[350px] xs:min-h-[550px]">
                 
                 {/* Project Header */}
-                <div className="flex flex-col lg:flex-row lg:items-start lg:justify-between gap-4 xs:gap-6 mb-12 xs:mb-16 min-h-20 lg:mb-8">
+                <div className="flex flex-col lg:flex-row lg:items-start lg:justify-between gap-4 xs:gap-6 mb-12 xs:mb-16 min-h-16 lg:mb-8">
                   <div className="space-y-3 xs:space-y-4 text-center md:text-left">
                     <h3 className="text-lg xs:text-xl sm:text-2xl lg:text-3xl font-bold text-white leading-tight">
                       {project.title}
@@ -110,12 +110,12 @@ export default function Projects() {
                         <div className="w-6 xs:w-8 h-0.5 bg-gradient-to-r from-blue-500 to-cyan-400 rounded-full"></div>
                         <h4 className="text-base xs:text-lg font-semibold text-slate-200">Project Overview</h4>
                       </div>
-                      <p className="text-md xs:text-base text-slate-300 max-w-[700px] leading-relaxed">
+                      <p className="text-md xs:text-base text-slate-300 max-w-[350px] xs:max-w-[400px] sm:max-w-[500px] lg:max-w-[700px] leading-relaxed">
                         {project.description}
                       </p>     
                     </div>
                     <video
-                      className="order-1 lg:order-2 w-full xs:max-w-[400px] lg:w-[500px] h-auto object-cover rounded-xl"
+                      className="order-1 lg:order-2 w-full max-w-[280px] xs:max-w-[320px] sm:max-w-[400px] lg:w-[500px] h-auto object-cover rounded-xl"
                       autoPlay
                       loop
                       muted
