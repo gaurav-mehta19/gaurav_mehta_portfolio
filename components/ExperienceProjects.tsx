@@ -6,7 +6,7 @@ import Projects from '@/components/Projects';
 
 export default function ExperienceProjects() {
   return (
-    <div className='min-h-[1300px]'>
+    <div>
     <SimpleTracingBeam>
       <Experience />
       <Projects />

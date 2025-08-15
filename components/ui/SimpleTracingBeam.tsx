@@ -20,7 +20,7 @@ export const SimpleTracingBeam: React.FC<SimpleTracingBeamProps> = ({ children }
 
   useEffect(() => {
     if (containerRef.current) {
-      setBeamHeight(containerRef.current.scrollHeight);
+      setBeamHeight(containerRef.current.scrollHeight * 0.9);
     }
   }, []);
 

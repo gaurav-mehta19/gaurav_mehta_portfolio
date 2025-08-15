@@ -1,8 +1,7 @@
 'use client';
 
 import { motion } from 'framer-motion';
-import { Github, ExternalLink } from 'lucide-react';
-
+import { Github, ExternalLink, Code2 } from 'lucide-react';
 
 interface Project {
   title: string;
@@ -17,14 +16,14 @@ export default function Projects() {
     {
       title: "Payment Wallet (InstantPay)",
       subtitle: "Full-Stack Fintech Platform",
-      description: "Of course. Here is the summary rewritten from a first-person perspective:I engineered a full-stack fintech monorepo using Turborepo to manage a Next.js application and multiple microservices. The core of this project was a secure P2P payment system featuring atomic transactions, which were made reliable and ACID-compliant using Prisma and PostgreSQL.I also built a robust security layer with NextAuth.js, JWTs, and Zod validation, alongside a production-ready Express.js webhook service for processing real-time transaction updates. On the frontend, I focused on performance by creating optimized React components, managing state with Recoil, and visualizing data with Recharts.",
+      description: "I engineered a full-stack fintech monorepo using Turborepo to manage a Next.js application and multiple microservices. The core of this project was a secure P2P payment system featuring atomic transactions, which were made reliable and ACID-compliant using Prisma and PostgreSQL. I also built a robust security layer with NextAuth.js, JWTs, and Zod validation, alongside a production-ready Express.js webhook service for processing real-time transaction updates.",
       github: "https://github.com/gaurav-mehta19/InstantPay",
       demo: "https://instant-pay-user-app-gaurav-mehtas-projects-7afab221.vercel.app"
     },
     {
       title: "Medium Website Clone",
       subtitle: "Full-Stack Blog Platform",
-      description: "Of course, here is the summary in the first person:I developed a full-stack, serverless Medium clone using React 18 and TypeScript for the frontend and Cloudflare Workers for the backend, all connected to a PostgreSQL database.I engineered a scalable, serverless architecture on Cloudflare's global edge network, featuring RESTful APIs, the Prisma ORM, and connection pooling for high performance. The application ensures enterprise-grade security with JWT authentication, bcrypt.js password hashing, and robust XSS protection. For an enhanced user experience, I implemented custom state management with Recoil, created a shared NPM package for TypeScript types, and built features like protected routing, a rich text editor, image uploads, and skeleton loading states",
+      description: "I developed a full-stack, serverless Medium clone using React 18 and TypeScript for the frontend and Cloudflare Workers for the backend, all connected to a PostgreSQL database. I engineered a scalable, serverless architecture on Cloudflare's global edge network, featuring RESTful APIs, the Prisma ORM, and connection pooling for high performance with enterprise-grade security.",
       github: "https://github.com/gaurav-mehta19/Blog-website",
       demo: "https://blog-website-hlzm.vercel.app/"
     }
@@ -36,85 +35,99 @@ export default function Projects() {
   ];
 
   return (
-    <section className="py-24 px-8 md:px-16 flex justify-end items-center">
-      <div className="w-full max-w-7xl mx-auto">
+    <section className="py-16 sm:py-20 lg:py-32 relative flex justify-end min-h-[1000px]">
+      <div className="w-full max-w-7xl mx-auto px-4 sm:px-8 lg:px-16">
+        {/* Enhanced Section Header */}
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.8 }}
-          className="text-center mb-16"
+          className="mb-12 sm:mb-16 lg:mb-20"
         >
-          <h2 className="text-2xl md:text-3xl min-h-20 flex items-center justify-start font-bold text-white mb-4">Featured Projects</h2>
-
+          <div className="flex items-center gap-4 mb-6 min-h-20">
+            <div className="p-3 bg-gradient-to-br from-blue-500/20 to-cyan-500/20 rounded-xl border border-blue-500/30">
+              <Code2 className="w-6 h-6 text-blue-400" />
+            </div>
+            <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold bg-gradient-to-r from-white via-blue-100 to-cyan-200 bg-clip-text text-transparent">
+              Featured Projects
+            </h2>
+          </div>
         </motion.div>
 
+        {/* Projects List */}
         <div className="space-y-12">
           {projects.map((project, index) => (
             <motion.div
               key={project.title}
-              initial={{ opacity: 0, y: 30 }}
+              initial={{ opacity: 0, y: 40 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.8, delay: index * 0.2 }}
-              className="bg-transparent backdrop-blur-sm  rounded-2xl p-8 hover:border-slate-600 transition-colors"
+              className="relative group"
             >
-              <div className="space-y-6 max-w-5xl min-h-[380px] flex flex-col items-center justify-start">
-
-                 <div className="w-full flex items-start justify-between">
-                  <div>
-                    <h3 className="text-xl font-bold text-white mb-2">
+              {/* Main Project Card */}
+              <div className="relative p-6 sm:p-8 lg:p-12 max-w-6xl min-h-[450px]">
+                
+                {/* Project Header */}
+                <div className="flex flex-col lg:flex-row lg:items-start lg:justify-between gap-6 mb-8">
+                  <div className="space-y-4">
+                    <h3 className="text-xl sm:text-2xl lg:text-3xl font-bold text-white leading-tight">
                       {project.title}
                     </h3>
-                    <p className="text-blue-400">
-                      {project.subtitle}
-                    </p>
+                    <span className="text-xl font-semibold text-blue-400">{project.subtitle}</span>
                   </div>
 
+                  {/* Action Buttons */}
                   <div className="flex gap-3 pt-2">
-                  <a
-                    href={project.github}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className=" w-32 h-10 flex justify-center items-center gap-2 px-4 py-2 bg-white text-slate-900 rounded-lg text-md font-medium hover:bg-slate-100 transition-colors"
-                  >
-                    <Github size={16} />
-                    Code
-                  </a>
-                  <a
-                    href={project.demo}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="w-32 h-10 flex justify-center items-center gap-2 px-4 py-2 border border-slate-600 text-white rounded-lg text-sm font-medium hover:border-slate-500 transition-colors"
-                  >
-                    <ExternalLink size={16} />
-                    Demo
-                  </a>
-                </div>
-                </div>
-
-
-                <div className="w-full mb-6 flex justify-center gap-10 items-center">
-                   <p className="text-slate-300 max-w-[600px] leading-relaxed">
-                  {project.description}
-                </p>     
-                  <video
-                    className="w-[400px] h-96 md:h-auto  object-cover rounded-xl"
-                    autoPlay
-                    loop
-                    muted
-                    playsInline
-                    preload="metadata"
-                  >
-                    <source src={videos[index]?.src} type="video/mp4" />
-                    Your browser does not support the video tag.
-                  </video>
-                    
+                    <a
+                      href={project.github}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="w-32 h-10 flex justify-center items-center gap-2 px-4 py-2 bg-white text-slate-900 rounded-lg text-md font-medium hover:bg-slate-100 transition-colors"
+                    >
+                      <Github size={16} />
+                      Code
+                    </a>
+                    <a
+                      href={project.demo}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="w-32 h-10 flex justify-center items-center gap-2 px-4 py-2 border border-slate-600 text-white rounded-lg text-sm font-medium hover:border-slate-500 transition-colors"
+                    >
+                      <ExternalLink size={16} />
+                      Demo
+                    </a>
+                  </div>
                 </div>
 
-               
+                {/* Project Content */}
+                <div className="space-y-6">
+                  
+                  <div className="w-full mb-6 flex justify-center gap-40 items-center">
+                    <div>
+                      <div className='flex items-center gap-2'>
+                    <div className="w-8 h-0.5 bg-gradient-to-r from-blue-500 to-cyan-400 rounded-full"></div>
+                    <h4 className="text-lg font-semibold text-slate-200">Project Overview</h4>
+                      </div>
+                    <p className="text-slate-300 max-w-[700px] leading-relaxed">
+                      {project.description}
+                    </p>     
+                    </div>
+                    <video
+                      className="w-[500px] h-96 md:h-auto object-cover rounded-xl"
+                      autoPlay
+                      loop
+                      muted
+                      playsInline
+                      preload="metadata"
+                    >
+                      <source src={videos[index]?.src} type="video/mp4" />
+                      Your browser does not support the video tag.
+                    </video>
+                  </div>
+                </div>
 
-              
               </div>
             </motion.div>
           ))}
