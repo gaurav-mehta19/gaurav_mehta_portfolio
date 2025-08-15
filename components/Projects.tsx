@@ -35,7 +35,7 @@ export default function Projects() {
   ];
 
   return (
-    <section className="py-12 xs:py-16 sm:py-20 lg:py-32 relative flex justify-end min-h-[800px] xs:min-h-[1000px]">
+    <section className="py-8 xs:py-12 sm:py-16 lg:py-32 relative flex justify-end min-h-[700px] xs:min-h-[800px]">
       <div className="w-full max-w-7xl mx-auto px-3 xs:px-4 sm:px-8 lg:px-16">
         {/* Enhanced Section Header */}
         <motion.div
@@ -43,7 +43,7 @@ export default function Projects() {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.8 }}
-          className="mb-8 xs:mb-12 sm:mb-16 lg:mb-20"
+          className="mb-6 xs:mb-8 sm:mb-12 lg:mb-20"
         >
           <div className="flex items-center justify-center md:justify-start gap-3 xs:gap-4 mb-4 xs:mb-6 min-h-16 xs:min-h-20">
             <div className="p-2 xs:p-3 bg-gradient-to-br from-blue-500/20 to-cyan-500/20 rounded-xl border border-blue-500/30">
@@ -56,7 +56,7 @@ export default function Projects() {
         </motion.div>
 
         {/* Projects List */}
-        <div className="space-y-8 xs:space-y-12">
+        <div className="space-y-6 xs:space-y-8">
           {projects.map((project, index) => (
             <motion.div
               key={project.title}
@@ -70,7 +70,7 @@ export default function Projects() {
               <div className="relative p-4 xs:p-6 sm:p-8 lg:p-12 max-w-4xl sm:max-w-6xl min-h-[350px] xs:min-h-[550px]">
                 
                 {/* Project Header */}
-                <div className="flex flex-col lg:flex-row lg:items-start lg:justify-between gap-4 xs:gap-6 mb-12 xs:mb-16 min-h-16 lg:mb-8">
+                <div className="flex flex-col lg:flex-row lg:items-start lg:justify-between gap-4 xs:gap-6 mb-8 xs:mb-12 min-h-16 lg:mb-8">
                   <div className="space-y-3 xs:space-y-4 text-center md:text-left">
                     <h3 className="text-lg xs:text-xl sm:text-2xl lg:text-3xl font-bold text-white leading-tight">
                       {project.title}
@@ -104,7 +104,7 @@ export default function Projects() {
                 {/* Project Content */}
                 <div className="space-y-4 xs:space-y-6">
                   
-                  <div className="w-full mb-4 xs:mb-6 flex flex-col lg:flex-row justify-center gap-6 xs:gap-8 lg:gap-40 items-center">
+                  <div className="w-full mb-4 xs:mb-6 flex flex-col lg:flex-row justify-center gap-4 xs:gap-6 lg:gap-40 items-center">
                     <div className="order-2 lg:order-1">
                       <div className='flex items-center gap-1.5 xs:gap-2 mb-3 xs:mb-4'>
                         <div className="w-6 xs:w-8 h-0.5 bg-gradient-to-r from-blue-500 to-cyan-400 rounded-full"></div>
