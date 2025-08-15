@@ -12,14 +12,14 @@ export default function Hero() {
   ];
 
   return (
-    <GridBackground className="min-h-[80vh] sm:min-h-[70vh] lg:h-[65vh]">
-      <section className="min-h-[80vh] sm:min-h-[70vh] lg:h-[65vh] flex items-center justify-center px-4 sm:px-8 lg:px-16 relative overflow-hidden">
+    <GridBackground className="min-h-[100vh] sm:min-h-[80vh] md:min-h-[70vh] lg:h-[65vh]">
+      <section className="min-h-[100vh] sm:min-h-[80vh] md:min-h-[70vh] lg:h-[65vh] flex items-center justify-center px-3 sm:px-4 md:px-8 lg:px-16 relative overflow-hidden">
         
-        <div className="w-full max-w-7xl mx-auto py-8 sm:py-12 lg:py-16">
-          <div className="grid grid-cols-1 lg:grid-cols-3 gap-8 sm:gap-12 lg:gap-20 items-center h-full">
+        <div className="w-full max-w-7xl mx-auto py-6 sm:py-8 md:py-12 lg:py-16">
+          <div className="grid grid-cols-1 lg:grid-cols-3 gap-6 sm:gap-8 md:gap-12 lg:gap-20 items-center h-full">
             
             {/* Left Content - Takes 2 columns for more space */}
-            <div className="space-y-6 sm:space-y-8 lg:space-y-12 flex flex-col justify-center lg:col-span-2 text-center lg:text-left lg:pl-8">
+            <div className="space-y-4 sm:space-y-6 md:space-y-8 lg:space-y-12 flex flex-col justify-center lg:col-span-2 text-center lg:text-left px-2 sm:px-4 lg:pl-8">
               {/* Enhanced Name Section */}
               <motion.div 
                 initial={{ opacity: 0, y: 30 }}
@@ -29,7 +29,7 @@ export default function Hero() {
               >
                 {/* Main name with consistent styling */}
                 <div className="relative z-30">
-                  <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-8xl min-h-16 sm:min-h-24 lg:min-h-32 font-bold leading-tight relative bg-gradient-to-r from-white via-blue-100 to-cyan-200 bg-clip-text text-transparent">
+                  <h1 className="text-3xl xs:text-4xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-8xl min-h-12 xs:min-h-16 sm:min-h-24 lg:min-h-32 font-bold leading-tight relative bg-gradient-to-r from-white via-blue-100 to-cyan-200 bg-clip-text text-transparent">
                     Gaurav Mehta
                   </h1>
                 </div>
@@ -42,7 +42,7 @@ export default function Hero() {
                 transition={{ delay: 0.3, duration: 0.8 }}
                 className="relative"
               >
-                <div className="text-lg sm:text-xl md:text-2xl lg:text-3xl font-medium min-h-12 sm:min-h-14 lg:min-h-[3.5rem] mt-4 md:mt-6 relative z-20">
+                <div className="text-base xs:text-lg sm:text-xl md:text-2xl lg:text-3xl font-medium min-h-10 xs:min-h-12 sm:min-h-14 lg:min-h-[3.5rem] mt-3 xs:mt-4 md:mt-6 relative z-20">
                   <div className="relative inline-block">
                     <SimpleTypewriter 
                       texts={titles}
@@ -65,8 +65,8 @@ export default function Hero() {
                 className="relative"
               >
                 <div className="space-y-6">              
-                  <div className="relative z-10 min-h-44">
-                    <p className="text-base sm:text-lg md:text-xl text-slate-300 leading-relaxed max-w-4xl">
+                  <div className="relative z-10 min-h-36 xs:min-h-40 sm:min-h-44">
+                    <p className="text-sm xs:text-base sm:text-lg md:text-xl text-slate-300 leading-relaxed max-w-4xl">
                       <span className="text-blue-400 font-semibold">Full-Stack Software Engineer</span> specializing in building scalable and secure web applications. 
                       Proficient in the <span className="text-cyan-400 font-medium">MERN/PERN stack</span>, with expertise in{' '}
                       <span className="text-cyan-400 font-medium">Next.js</span>,{' '}
@@ -88,7 +88,7 @@ export default function Hero() {
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ delay: 0.8, duration: 0.8 }}
-                className="pt-8 md:pt-12 lg:pt-16"
+                className="pt-6 xs:pt-8 md:pt-12 lg:pt-16 flex justify-center lg:justify-start"
               >
                 <a
                   href="https://drive.google.com/file/d/1OGo8xC55acupy1ga8TIWbcsybKvlJxjr/view?usp=sharing"
@@ -97,11 +97,11 @@ export default function Hero() {
                 >
                   <button
                     type="button"
-                    className="min-h-12 min-w-52 border border-slate-600/30 bg-white text-black font-medium text-md backdrop-blur-sm rounded-lg hover:border-slate-500/80 hover:bg-white hover:scale-105 hover:shadow-2xl hover:shadow-blue-500/20 transition-all duration-300 cursor-pointer shadow-lg transform flex items-center justify-center gap-2"
+                    className="min-h-10 xs:min-h-12 min-w-44 xs:min-w-52 border border-slate-600/30 bg-white text-black font-medium text-sm xs:text-md backdrop-blur-sm rounded-lg hover:border-slate-500/80 hover:bg-white hover:scale-105 hover:shadow-2xl hover:shadow-blue-500/20 transition-all duration-300 cursor-pointer shadow-lg transform flex items-center justify-center gap-2"
                   >
                     Download Resume
                     <svg 
-                      className="w-5 h-5" 
+                      className="w-4 h-4 xs:w-5 xs:h-5" 
                       fill="none" 
                       stroke="currentColor" 
                       viewBox="0 0 24 24"

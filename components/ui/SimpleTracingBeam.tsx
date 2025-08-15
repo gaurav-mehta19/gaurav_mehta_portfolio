@@ -27,7 +27,7 @@ export const SimpleTracingBeam: React.FC<SimpleTracingBeamProps> = ({ children }
   return (
     <div ref={containerRef} className="relative">
       {/* Modern Tracing beam line */}
-      <div className="absolute left-48 md:left-64 lg:left-80 top-0 h-full">
+      <div className="absolute left-48 md:left-64 lg:left-80 top-0 h-full hidden md:block">
         <svg
           width="4"
           height={beamHeight}
@@ -114,7 +114,7 @@ export const SimpleTracingBeam: React.FC<SimpleTracingBeamProps> = ({ children }
       </div>
 
       {/* Content with proper spacing */}
-      <div className="pl-56 md:pl-72 lg:pl-88">
+      <div className="pl-0 md:pl-72 lg:pl-88">
         {children}
       </div>
     </div>
