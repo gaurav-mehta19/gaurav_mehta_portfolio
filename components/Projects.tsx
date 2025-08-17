@@ -1,7 +1,39 @@
 'use client';
 
+import { memo, useMemo } from 'react';
 import { motion } from 'framer-motion';
 import { Github, ExternalLink, Code2 } from 'lucide-react';
+
+// Simple inline video component for better reliability
+const AutoplayVideo = ({ src, title, poster, className }: { src: string; title: string; poster?: string; className?: string }) => {
+  const handleLoadedMetadata = (e: React.SyntheticEvent<HTMLVideoElement>) => {
+    const video = e.currentTarget;
+    video.play().catch(() => {
+      // Autoplay blocked, this is normal on some browsers
+    });
+  };
+
+  return (
+    <div className={`relative ${className}`}>
+      <video
+        className="w-full h-auto object-cover rounded-xl"
+        autoPlay
+        loop
+        muted
+        playsInline
+        preload="metadata"
+        poster={poster}
+        onLoadedMetadata={handleLoadedMetadata}
+      >
+        <source src={src} type="video/mp4" />
+        Your browser does not support the video tag.
+      </video>
+      <div className="absolute bottom-2 left-2 bg-black/70 text-white text-xs px-2 py-1 rounded">
+        {title}
+      </div>
+    </div>
+  );
+};
 
 interface Project {
   title: string;
@@ -11,8 +43,8 @@ interface Project {
   demo: string;
 }
 
-export default function Projects() {
-  const projects: Project[] = [
+const Projects = memo(function Projects() {
+  const projects: Project[] = useMemo(() => [
     {
       title: "Payment Wallet (InstantPay)",
       subtitle: "Full-Stack Fintech Platform",
@@ -27,12 +59,12 @@ export default function Projects() {
       github: "https://github.com/gaurav-mehta19/Blog-website",
       demo: "https://blog-website-hlzm.vercel.app/"
     }
-  ];
+  ], []);
 
-  const videos = [
-    { src: "/instantPay.mp4", title: "InstantPay Demo" },
-    { src: "/medium_blog.mp4", title: "Medium Blog Demo" }
-  ];
+  const videos = useMemo(() => [
+    { src: "/instantPay.mp4", title: "InstantPay Demo", poster: "/instantPay-poster.svg" },
+    { src: "/medium_blog.mp4", title: "Medium Blog Demo", poster: "/medium_blog-poster.svg" }
+  ], []);
 
   return (
     <section className="py-8 xs:py-12 sm:py-16 lg:py-32 relative flex justify-end min-h-[700px] xs:min-h-[800px]">
@@ -114,17 +146,12 @@ export default function Projects() {
                         {project.description}
                       </p>     
                     </div>
-                    <video
-                      className="order-1 lg:order-2 w-full max-w-[280px] xs:max-w-[320px] sm:max-w-[400px] lg:w-[500px] h-auto object-cover rounded-xl"
-                      autoPlay
-                      loop
-                      muted
-                      playsInline
-                      preload="metadata"
-                    >
-                      <source src={videos[index]?.src} type="video/mp4" />
-                      Your browser does not support the video tag.
-                    </video>
+                    <AutoplayVideo
+                      src={videos[index]?.src}
+                      title={videos[index]?.title}
+                      poster={videos[index]?.poster}
+                      className="order-1 lg:order-2 w-full max-w-[280px] xs:max-w-[320px] sm:max-w-[400px] lg:w-[500px]"
+                    />
                   </div>
                 </div>
 
@@ -135,4 +162,6 @@ export default function Projects() {
       </div>
     </section>
   );
-}
+});
+
+export default Projects;

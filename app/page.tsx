@@ -1,9 +1,23 @@
 
+'use client';
+
+import dynamic from 'next/dynamic';
+
+// Keep Hero as critical above-the-fold content
 import Hero from '../components/Hero';
-import ExperienceProjects from '../components/ExperienceProjects';
-// import TechnicalSkills from '../components/TechnicalSkills';
-import { VerticalFloatingDock } from '../components/ui/VerticalFloatingDock';
-import BlankSpace from '../components/BlankSpace';
+
+// Dynamic imports for non-critical components
+const ExperienceProjects = dynamic(() => import('../components/ExperienceProjects'), {
+  loading: () => <div className="h-96 bg-slate-900/50 animate-pulse rounded-lg" />,
+});
+
+const VerticalFloatingDock = dynamic(() => import('../components/ui/VerticalFloatingDock').then(mod => ({ default: mod.VerticalFloatingDock })), {
+  ssr: false,
+});
+
+const BlankSpace = dynamic(() => import('../components/BlankSpace'), {
+  loading: () => <div className="h-24" />,
+});
 
 export default function Home() {
   return (

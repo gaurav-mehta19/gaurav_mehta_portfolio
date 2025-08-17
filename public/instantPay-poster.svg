@@ -1,0 +1,7 @@
+<svg width="500" height="280" xmlns="http://www.w3.org/2000/svg">
+  <rect width="500" height="280" fill="#1e293b"/>
+  <circle cx="250" cy="140" r="40" fill="#3b82f6" opacity="0.8"/>
+  <polygon points="240,120 240,160 270,140" fill="white"/>
+  <text x="250" y="200" text-anchor="middle" fill="white" font-family="Arial, sans-serif" font-size="16">InstantPay Demo</text>
+  <text x="250" y="220" text-anchor="middle" fill="#64748b" font-family="Arial, sans-serif" font-size="12">Click to play</text>
+</svg>

@@ -1,15 +1,43 @@
 'use client';
 
+import { memo, useMemo } from 'react';
 import { motion } from 'framer-motion';
 import { GridBackground } from './ui/GridBackground';
 import { SimpleTypewriter } from './ui/CyclingTypewriter';
 import Image from 'next/image';
 
-
-export default function Hero() {
-  const titles = [
+const Hero = memo(function Hero() {
+  const titles = useMemo(() => [
     "I'm a Full Stack Developer",
-  ];
+  ], []);
+
+  const motionVariants = useMemo(() => ({
+    nameVariant: {
+      initial: { opacity: 0, y: 30 },
+      animate: { opacity: 1, y: 0 },
+      transition: { duration: 0.8 }
+    },
+    typewriterVariant: {
+      initial: { opacity: 0, x: -20 },
+      animate: { opacity: 1, x: 0 },
+      transition: { delay: 0.3, duration: 0.8 }
+    },
+    summaryVariant: {
+      initial: { opacity: 0, y: 20 },
+      animate: { opacity: 1, y: 0 },
+      transition: { delay: 0.6, duration: 0.8 }
+    },
+    buttonVariant: {
+      initial: { opacity: 0, y: 20 },
+      animate: { opacity: 1, y: 0 },
+      transition: { delay: 0.8, duration: 0.8 }
+    },
+    imageVariant: {
+      initial: { opacity: 0, x: 50, scale: 0.8 },
+      animate: { opacity: 1, x: 0, scale: 1 },
+      transition: { delay: 0.4, duration: 0.8 }
+    }
+  }), []);
 
   return (
     <GridBackground className="min-h-[90vh] sm:min-h-[80vh] md:min-h-[70vh] lg:h-[65vh]">
@@ -22,9 +50,7 @@ export default function Hero() {
             <div className="space-y-3 sm:space-y-4 md:space-y-6 lg:space-y-12 flex flex-col justify-center lg:col-span-2 text-center lg:text-left px-2 sm:px-4 lg:pl-8">
               {/* Enhanced Name Section */}
               <motion.div 
-                initial={{ opacity: 0, y: 30 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.8 }}
+                {...motionVariants.nameVariant}
                 className="relative"
               >
                 {/* Main name with consistent styling */}
@@ -143,6 +169,10 @@ export default function Hero() {
                       fill
                       className="object-contain rounded-2xl group-hover:scale-105 transition-transform duration-500"
                       priority
+                      sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+                      quality={85}
+                      placeholder="blur"
+                      blurDataURL="data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/2wBDAAYEBQYFBAYGBQYHBwYIChAKCgkJChQODwwQFxQYGBcUFhYaHSUfGhsjHBYWICwgIyYnKSopGR8tMC0oMCUoKSj/2wBDAQcHBwoIChMKChMoGhYaKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCj/wAARCAAIAAoDASIAAhEBAxEB/8QAFQABAQAAAAAAAAAAAAAAAAAAAAv/xAAhEAACAQMDBQAAAAAAAAAAAAABAgMABAUGIWGRkbHB0f/EABUBAQEAAAAAAAAAAAAAAAAAAAMF/8QAGhEAAgIDAAAAAAAAAAAAAAAAAAECEgMRkf/aAAwDAQACEQMRAD8AltJagyeH0AthI5xdrLcNM91BF5pX2HaH9bcfaSXWGaRmknyJckliyjqTzSlT54b6bk+h0R//2Q=="
                     />
                   </div>
                   
@@ -166,4 +196,6 @@ export default function Hero() {
       </section>
     </GridBackground>
   );
-}
+});
+
+export default Hero;

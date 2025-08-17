@@ -1,9 +1,14 @@
 'use client';
 
-import React from 'react';
+import React, { memo, useMemo } from 'react';
 import { motion } from 'framer-motion';
-import { Github, Linkedin, FileText } from 'lucide-react';
-import { FaXTwitter } from 'react-icons/fa6';
+import dynamic from 'next/dynamic';
+
+// Dynamic icon imports to reduce bundle size
+const Github = dynamic(() => import('lucide-react').then(mod => ({ default: mod.Github })));
+const Linkedin = dynamic(() => import('lucide-react').then(mod => ({ default: mod.Linkedin })));
+const FileText = dynamic(() => import('lucide-react').then(mod => ({ default: mod.FileText })));
+const FaXTwitter = dynamic(() => import('react-icons/fa6').then(mod => ({ default: mod.FaXTwitter })));
 
 interface DockItem {
   id: string;
@@ -13,8 +18,8 @@ interface DockItem {
   color: string;
 }
 
-export const VerticalFloatingDock: React.FC = () => {
-  const dockItems: DockItem[] = [
+export const VerticalFloatingDock: React.FC = memo(function VerticalFloatingDock() {
+  const dockItems: DockItem[] = useMemo(() => [
     {
       id: 'x',
       icon: <FaXTwitter size={20} />,
@@ -43,7 +48,7 @@ export const VerticalFloatingDock: React.FC = () => {
       href: 'https://drive.google.com/file/d/1OGo8xC55acupy1ga8TIWbcsybKvlJxjr/view?usp=sharing',
       color: 'hover:bg-green-600'
     }
-  ];
+  ], []);
 
   return (
     <motion.div
@@ -97,4 +102,4 @@ export const VerticalFloatingDock: React.FC = () => {
       </div>
     </motion.div>
   );
-};
+});

@@ -1,6 +1,6 @@
 'use client';
 
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useCallback, memo } from 'react';
 
 
 interface SimpleTypewriterProps {
@@ -8,7 +8,7 @@ interface SimpleTypewriterProps {
   className?: string;
 }
 
-export function SimpleTypewriter({ 
+const SimpleTypewriter = memo(function SimpleTypewriter({ 
   texts, 
   className = ""
 }: SimpleTypewriterProps) {
@@ -16,37 +16,29 @@ export function SimpleTypewriter({
   const [currentText, setCurrentText] = useState('');
   const [isTyping, setIsTyping] = useState(true);
 
-  useEffect(() => {
+  const updateText = useCallback(() => {
     const text = texts[currentIndex];
-    let timeout: NodeJS.Timeout;
-
+    
     if (isTyping) {
-      // Typing animation
       if (currentText.length < text.length) {
-        timeout = setTimeout(() => {
-          setCurrentText(text.slice(0, currentText.length + 1));
-        }, 80);
+        setCurrentText(text.slice(0, currentText.length + 1));
       } else {
-        // Wait before starting to delete
-        timeout = setTimeout(() => {
-          setIsTyping(false);
-        }, 2000);
+        setTimeout(() => setIsTyping(false), 2000);
       }
     } else {
-      // Deleting animation
       if (currentText.length > 0) {
-        timeout = setTimeout(() => {
-          setCurrentText(currentText.slice(0, -1));
-        }, 40);
+        setCurrentText(currentText.slice(0, -1));
       } else {
-        // Move to next text
         setCurrentIndex((prev) => (prev + 1) % texts.length);
         setIsTyping(true);
       }
     }
-
-    return () => clearTimeout(timeout);
   }, [currentText, isTyping, currentIndex, texts]);
+
+  useEffect(() => {
+    const timeout = setTimeout(updateText, isTyping ? 80 : 40);
+    return () => clearTimeout(timeout);
+  }, [updateText, isTyping]);
 
   return (
     <div className={className}>
@@ -55,4 +47,6 @@ export function SimpleTypewriter({
       </span>
     </div>
   );
-}
+});
+
+export { SimpleTypewriter };
