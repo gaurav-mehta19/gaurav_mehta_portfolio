@@ -9,7 +9,7 @@ interface SimpleTracingBeamProps {
 
 export const SimpleTracingBeam: React.FC<SimpleTracingBeamProps> = ({ children }) => {
   const containerRef = useRef<HTMLDivElement>(null);
-  const [beamHeight, setBeamHeight] = useState(0);
+  const [beamHeight, setBeamHeight] = useState(800); // Default fallback height
 
   const { scrollYProgress } = useScroll({
     target: containerRef,
@@ -19,9 +19,39 @@ export const SimpleTracingBeam: React.FC<SimpleTracingBeamProps> = ({ children }
   const pathLength = useTransform(scrollYProgress, [0, 1], [0, 1]);
 
   useEffect(() => {
+    const updateBeamHeight = () => {
+      if (containerRef.current) {
+        const newHeight = containerRef.current.scrollHeight * 0.9;
+        if (newHeight > 100) { // Minimum height threshold
+          setBeamHeight(Math.max(newHeight, 800)); // Ensure minimum 800px
+        }
+      }
+    };
+
+    // Initial calculation with delay to ensure dynamic components load
+    const initialTimer = setTimeout(updateBeamHeight, 100);
+    
+    // Additional calculation after a longer delay for dynamic components
+    const delayedTimer = setTimeout(updateBeamHeight, 1000);
+
+    // Use ResizeObserver to watch for content changes
+    const resizeObserver = new ResizeObserver(() => {
+      updateBeamHeight();
+    });
+
     if (containerRef.current) {
-      setBeamHeight(containerRef.current.scrollHeight * 0.9);
+      resizeObserver.observe(containerRef.current);
     }
+
+    // Also listen for window resize
+    window.addEventListener('resize', updateBeamHeight);
+
+    return () => {
+      clearTimeout(initialTimer);
+      clearTimeout(delayedTimer);
+      resizeObserver.disconnect();
+      window.removeEventListener('resize', updateBeamHeight);
+    };
   }, []);
 
   return (
