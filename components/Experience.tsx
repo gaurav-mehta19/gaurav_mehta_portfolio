@@ -90,7 +90,7 @@ export default function Experience() {
                     className="group/item flex items-start gap-3 xs:gap-4 p-3 xs:p-4 rounded-xl hover:bg-slate-800/30 transition-all duration-300 justify-center lg:justify-start"
                   >
                     {/* Enhanced Bullet Point */}
-                    <div className="flex-shrink-0 mt-1.5 xs:mt-2">
+                    <div className="flex-shrink-0 flex justify-center items-center min-h-7 mt-1.5 xs:mt-2">
                       <div className="w-1.5 h-1.5 xs:w-2 xs:h-2 bg-gradient-to-r from-green-400 to-emerald-400 rounded-full transform group-hover/item:scale-125 transition-transform duration-300"></div>
                     </div>
                     
