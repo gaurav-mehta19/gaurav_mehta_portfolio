@@ -76,30 +76,34 @@ export default function ThemeToggle() {
       ref={buttonRef}
       type="button"
       onClick={toggleTheme}
-      className="theme-toggle"
+      className="theme-capsule"
+      role="switch"
+      aria-checked={theme === "dark"}
       aria-label="Toggle color theme"
+      data-theme-state={ready ? theme : "light"}
     >
-      {ready ? (
-        theme === "dark" ? (
-          <svg viewBox="0 0 24 24" aria-hidden="true">
-            <path
-              fill="currentColor"
-              d="M12 4a1 1 0 0 1 1 1v1a1 1 0 1 1-2 0V5a1 1 0 0 1 1-1Zm0 13a5 5 0 1 0 0-10 5 5 0 0 0 0 10Zm8-5a1 1 0 0 1-1 1h-1a1 1 0 1 1 0-2h1a1 1 0 0 1 1 1ZM7 12a1 1 0 0 1-1 1H5a1 1 0 1 1 0-2h1a1 1 0 0 1 1 1Zm8.36 5.95a1 1 0 0 1 1.41 0l.71.71a1 1 0 0 1-1.41 1.41l-.71-.7a1 1 0 0 1 0-1.42ZM7.22 7.22a1 1 0 0 1 1.41 0l.71.71A1 1 0 1 1 7.93 9.34l-.71-.7a1 1 0 0 1 0-1.42Zm9.97 0a1 1 0 0 1 0 1.41l-.71.71a1 1 0 0 1-1.41-1.41l.7-.71a1 1 0 0 1 1.42 0ZM9.34 16.07a1 1 0 0 1 0 1.41l-.7.71a1 1 0 0 1-1.42-1.41l.71-.71a1 1 0 0 1 1.41 0ZM12 18a1 1 0 0 1 1 1v1a1 1 0 1 1-2 0v-1a1 1 0 0 1 1-1Z"
-            />
-          </svg>
-        ) : (
-          <svg viewBox="0 0 24 24" aria-hidden="true">
-            <path
-              fill="currentColor"
-              d="M21 13.2A9 9 0 1 1 10.8 3a1 1 0 0 1 .85 1.53A7 7 0 0 0 19.47 12a1 1 0 0 1 1.53 1.2Z"
-            />
-          </svg>
-        )
-      ) : (
-        <svg viewBox="0 0 24 24" aria-hidden="true">
-          <circle cx="12" cy="12" r="6" fill="currentColor" />
+      <span className="theme-capsule-thumb" aria-hidden="true" />
+      <span className="theme-capsule-icon is-sun" aria-hidden="true">
+        <svg
+          viewBox="0 0 24 24"
+          fill="none"
+          stroke="currentColor"
+          strokeWidth="2"
+          strokeLinecap="round"
+          strokeLinejoin="round"
+        >
+          <circle cx="12" cy="12" r="4" />
+          <path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M4.93 19.07l1.41-1.41M17.66 6.34l1.41-1.41" />
         </svg>
-      )}
+      </span>
+      <span className="theme-capsule-icon is-moon" aria-hidden="true">
+        <svg viewBox="0 0 24 24">
+          <path
+            fill="currentColor"
+            d="M21 13.2A9 9 0 1 1 10.8 3a1 1 0 0 1 .85 1.53A7 7 0 0 0 19.47 12a1 1 0 0 1 1.53 1.2Z"
+          />
+        </svg>
+      </span>
     </button>
   );
 }

@@ -1,12 +1,21 @@
-import ImageCarousel from "@/components/portfolio/ImageCarousel";
+import Image from "next/image";
 import LinkRow from "@/components/portfolio/LinkRow";
 import RichText from "@/components/portfolio/RichText";
+import TechIcon from "@/components/portfolio/TechIcon";
 import type { Project } from "@/lib/portfolio-data";
 
 export default function ProjectCard({ project }: { project: Project }) {
   return (
     <article className="project-card">
-      <ImageCarousel images={project.images} alt={project.name} />
+      <div className="project-thumb">
+        <Image
+          src={project.thumbnail}
+          alt={`${project.name} preview`}
+          fill
+          sizes="(max-width: 760px) 100vw, 440px"
+          className="project-thumb-img"
+        />
+      </div>
       <div className="project-body">
         <div className="project-title-row">
           <h3>{project.name}</h3>
@@ -32,6 +41,7 @@ export default function ProjectCard({ project }: { project: Project }) {
           <div className="tech-row">
             {project.tech.map((tech) => (
               <span key={tech} className="tech-chip">
+                <TechIcon name={tech} />
                 {tech}
               </span>
             ))}
