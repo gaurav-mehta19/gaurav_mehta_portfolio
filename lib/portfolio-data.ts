@@ -14,7 +14,7 @@ export type Project = {
   description: string;
   highlights: string[];
   tech: string[];
-  images: string[];
+  thumbnail: string;
   links: ProjectLink[];
 };
 
@@ -22,6 +22,7 @@ export type Experience = {
   role: string;
   company: string;
   period: string;
+  logo: string;
   highlights: string[];
 };
 
@@ -33,7 +34,6 @@ export type SkillGroup = {
 export type PortfolioData = {
   name: string;
   role: string;
-  availability: string;
   summary: string;
   email: string;
   resumeHref: string;
@@ -46,9 +46,8 @@ export type PortfolioData = {
 export const portfolioData: PortfolioData = {
   name: "Gaurav Mehta",
   role: "Full-Stack Software Engineer",
-  availability: "Open to software engineering roles · Graduating June 2026",
   summary:
-    "Focused on end-to-end product development with TypeScript, Next.js, Node.js, and PostgreSQL. I prioritize performance, security, and maintainable code.",
+    "Full-stack software engineer specializing in scalable backend systems, modern web applications, and AI-powered products. I build with TypeScript, Next.js, Node.js, and PostgreSQL, focusing on performance, clean architecture, and developer experience. Built fintech systems, workflow orchestration engines, and LLM-driven automation platforms, with proven impact across production-scale startups.",
   email: "mehta.gaurav086@gmail.com",
   resumeHref:
     "https://drive.google.com/file/d/1Rrd8f7GP5E-FPY6kAjxyeJzDtjNl62GP/view?usp=sharing",
@@ -65,7 +64,7 @@ export const portfolioData: PortfolioData = {
   projects: [
     {
       name: "NextFlow",
-      status: "Shipped",
+      status: "Building",
       description:
         "Visual LLM workflow builder — a drag-and-connect canvas where workflows execute as recursive DAGs with live per-node state streamed to the browser.",
       highlights: [
@@ -84,12 +83,11 @@ export const portfolioData: PortfolioData = {
         "Prisma",
         "Clerk",
       ],
-      images: [
-        "/projects/nextflow/1.png",
-        "/projects/nextflow/2.png",
-        "/projects/nextflow/3.png",
+      thumbnail: "/projects/nextflow/thumbnail.png",
+      links: [
+        { label: "GitHub", href: "https://github.com/gaurav-mehta19/nextflow" },
+        { label: "Live", href: "https://nextflow-topaz-xi.vercel.app" },
       ],
-      links: [],
     },
     {
       name: "InstantPay",
@@ -103,12 +101,7 @@ export const portfolioData: PortfolioData = {
         "CI/CD with **GitHub Actions and Docker**; route-level code splitting on the frontend.",
       ],
       tech: ["TypeScript", "Node.js", "PostgreSQL", "Prisma", "Turborepo", "Docker"],
-      images: [
-        "/projects/instantpay/1.png",
-        "/projects/instantpay/2.png",
-        "/projects/instantpay/3.png",
-        "/projects/instantpay/4.png",
-      ],
+      thumbnail: "/projects/instantpay/thumbnail.png",
       links: [
         { label: "GitHub", href: "https://github.com/gaurav-mehta19/InstantPay" },
         {
@@ -123,6 +116,7 @@ export const portfolioData: PortfolioData = {
       role: "Full-Stack Intern",
       company: "Second Brain Labs",
       period: "Nov 2025 - Dec 2025",
+      logo: "/projects/logos/second_brain_labs_logo.jpeg",
       highlights: [
         "Built an end-to-end **AI-driven campaign suggestion pipeline** using LinkedIn data extraction and Apify APIs to generate personalized outreach campaigns.",
         "Integrated an **LLM-based content generation pipeline** for dynamic message personalization, reducing manual effort and improving engagement quality.",
@@ -134,6 +128,7 @@ export const portfolioData: PortfolioData = {
       role: "Software Engineering Intern",
       company: "Trading Studio",
       period: "Apr 2025 - Aug 2025",
+      logo: "/projects/logos/tradingstudio_logo.jpeg",
       highlights: [
         "Optimized PostgreSQL queries and indexing, reducing response times from **3s to under 500ms** for core analytics workflows.",
         "Increased test coverage from **40% to 85%** with an automated testing framework, significantly reducing production bugs.",
