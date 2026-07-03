@@ -10,7 +10,16 @@ const compat = new FlatCompat({
 });
 
 const eslintConfig = [
+  {
+    ignores: [".next/**", "node_modules/**", "out/**", "build/**"],
+  },
   ...compat.extends("next/core-web-vitals", "next/typescript"),
+  {
+    rules: {
+      "@typescript-eslint/consistent-type-imports": "warn",
+      "no-console": ["warn", { allow: ["warn", "error"] }],
+    },
+  },
 ];
 
 export default eslintConfig;
