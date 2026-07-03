@@ -106,7 +106,7 @@ export const portfolioData: PortfolioData = {
         { label: "GitHub", href: "https://github.com/gaurav-mehta19/InstantPay" },
         {
           label: "Live",
-          href: "https://instant-pay-user-app-gaurav-mehtas-projects-7afab221.vercel.app",
+          href: "https://instant-pay-user-app.vercel.app",
         },
       ],
     },

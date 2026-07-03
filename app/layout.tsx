@@ -1,11 +1,24 @@
 import type { Metadata } from "next";
-import localFont from "next/font/local";
+import { Cormorant_Garamond, Inter, Sora } from "next/font/google";
 import "./globals.css";
 
-const generalSans = localFont({
-  src: "./fonts/GeneralSans-Variable.woff2",
+const inter = Inter({
+  subsets: ["latin"],
   variable: "--font-sans",
-  weight: "200 700",
+  display: "swap",
+});
+
+const sora = Sora({
+  subsets: ["latin"],
+  variable: "--font-display",
+  weight: ["600", "700"],
+  display: "swap",
+});
+
+const cormorant = Cormorant_Garamond({
+  subsets: ["latin"],
+  variable: "--font-serif",
+  weight: ["600", "700"],
   display: "swap",
 });
 
@@ -50,7 +63,7 @@ export default function RootLayout({
     <html
       lang="en"
       suppressHydrationWarning
-      className={generalSans.variable}
+      className={`${inter.variable} ${sora.variable} ${cormorant.variable}`}
     >
       <body className="antialiased">
         <script

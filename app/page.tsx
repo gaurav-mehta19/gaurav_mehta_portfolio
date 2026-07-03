@@ -33,7 +33,7 @@ export default function Home() {
                 Resume
               </Link>
               <a
-                href={`https://mail.google.com/mail/?view=cm&fs=1&to=${portfolioData.email}`}
+                href={portfolioData.socials.find((s) => s.label === "LinkedIn")?.href}
                 className="pill-link pill-accent"
                 target="_blank"
                 rel="noopener noreferrer"

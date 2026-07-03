@@ -30,7 +30,7 @@ export default function ProjectCard({ project }: { project: Project }) {
         <p className="project-description">{project.description}</p>
         {project.highlights.length > 0 ? (
           <ul className="bullet-list">
-            {project.highlights.map((highlight) => (
+            {project.highlights.slice(0, 3).map((highlight) => (
               <li key={highlight}>
                 <RichText text={highlight} />
               </li>
