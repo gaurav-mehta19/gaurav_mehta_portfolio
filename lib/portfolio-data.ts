@@ -64,7 +64,7 @@ export const portfolioData: PortfolioData = {
   projects: [
     {
       name: "NextFlow",
-      status: "Building",
+      status: "Shipped",
       description:
         "Visual LLM workflow builder — a drag-and-connect canvas where workflows execute as recursive DAGs with live per-node state streamed to the browser.",
       highlights: [
