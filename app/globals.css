@@ -319,12 +319,14 @@ a {
 
 :root[data-theme="dark"] .pill-accent {
   color: #1e2021;
+  box-shadow: 0 8px 20px rgba(245, 158, 11, 0.12);
 }
 
 :root[data-theme="dark"] .pill-accent:hover {
   background: color-mix(in srgb, var(--accent) 88%, #fff);
   border-color: color-mix(in srgb, var(--accent) 88%, #fff);
   color: #1e2021;
+  box-shadow: 0 10px 24px rgba(245, 158, 11, 0.16);
 }
 
 .theme-capsule {
@@ -437,7 +439,7 @@ a {
   content: "";
   position: absolute;
   left: calc(-1 * var(--space-6) + 1px);
-  top: 1.5rem;
+  top: 2.6rem;
   width: 9px;
   height: 9px;
   border-radius: 50%;
@@ -586,6 +588,7 @@ a {
 .project-grid {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
+  align-items: stretch;
   gap: var(--space-8);
 }
 
@@ -728,7 +731,8 @@ a {
 .footer {
   position: relative;
   margin-top: 5rem;
-  padding-top: var(--space-10);
+  padding-top: 56px;
+  padding-bottom: 72px;
 }
 
 .footer::before {
@@ -737,7 +741,7 @@ a {
   top: 0;
   left: 50%;
   transform: translateX(-50%);
-  width: 96px;
+  width: 72px;
   height: 1px;
   background: var(--border);
 }
@@ -746,7 +750,7 @@ a {
   display: flex;
   justify-content: center;
   align-items: center;
-  gap: var(--space-1);
+  gap: 2px;
 }
 
 .footer-icon-link {
@@ -754,16 +758,23 @@ a {
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  width: 2.4rem;
-  height: 2.4rem;
+  width: 2.5rem;
+  height: 2.5rem;
   border-radius: var(--radius-sm);
   color: var(--text-muted);
-  transition: color 150ms ease, background 150ms ease, transform 150ms ease;
+  opacity: 0.75;
+  transition: color 150ms ease, background 150ms ease, transform 200ms var(--ease), opacity 200ms ease;
+}
+
+.footer-icon-link svg {
+  width: 1.375rem;
+  height: 1.375rem;
 }
 
 .footer-icon-link:hover {
   color: var(--accent);
   background: var(--accent-soft);
+  opacity: 1;
   transform: translateY(-2px);
 }
 
@@ -793,7 +804,7 @@ a {
   margin-top: var(--space-5);
   color: var(--text-muted);
   font-size: var(--text-xs);
-  opacity: 0.85;
+  opacity: 0.75;
 }
 
 @media (max-width: 760px) {
