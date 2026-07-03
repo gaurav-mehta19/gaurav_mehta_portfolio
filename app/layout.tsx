@@ -26,30 +26,68 @@ const siteUrl = process.env.NEXT_PUBLIC_SITE_URL ?? "https://www.gauravmehta.onl
 
 export const metadata: Metadata = {
   metadataBase: new URL(siteUrl),
-  title: "Gaurav Mehta | Portfolio",
+  title: {
+    default: "Gaurav Mehta | Backend-Focused Full-Stack Engineer",
+    template: "%s | Gaurav Mehta",
+  },
   description:
-    "Gaurav Mehta — Full-Stack Software Engineer specializing in TypeScript, Next.js, Node.js, and PostgreSQL. View projects, experience, and engineering notes.",
+    "Gaurav Mehta — Backend-focused Full-Stack Software Engineer building scalable backend systems, fintech infrastructure, and AI-powered workflow platforms with TypeScript, Node.js, Next.js, PostgreSQL, and Redis.",
+  keywords: [
+    "Gaurav Mehta",
+    "Full-Stack Engineer",
+    "Backend Engineer",
+    "Software Engineer",
+    "TypeScript",
+    "Node.js",
+    "Next.js",
+    "PostgreSQL",
+    "Redis",
+    "Fintech",
+    "AI Workflow",
+    "Distributed Systems",
+    "Portfolio",
+  ],
+  authors: [{ name: "Gaurav Mehta", url: siteUrl }],
+  creator: "Gaurav Mehta",
+  publisher: "Gaurav Mehta",
+  category: "technology",
+  alternates: {
+    canonical: "/",
+  },
+  robots: {
+    index: true,
+    follow: true,
+    googleBot: {
+      index: true,
+      follow: true,
+      "max-image-preview": "large",
+      "max-snippet": -1,
+      "max-video-preview": -1,
+    },
+  },
   openGraph: {
-    title: "Gaurav Mehta | Portfolio",
+    title: "Gaurav Mehta | Backend-Focused Full-Stack Engineer",
     description:
-      "Full-Stack Software Engineer specializing in TypeScript, Next.js, Node.js, and PostgreSQL.",
+      "Backend-focused Full-Stack Engineer building scalable backend systems, fintech infrastructure, and AI-powered workflow platforms.",
     url: "/",
     siteName: "Gaurav Mehta",
+    locale: "en_US",
     type: "website",
     images: [
       {
         url: "/og-image.png",
         width: 1200,
         height: 669,
-        alt: "Gaurav Mehta — Full-Stack Software Engineer",
+        alt: "Gaurav Mehta — Backend-Focused Full-Stack Engineer",
       },
     ],
   },
   twitter: {
     card: "summary_large_image",
-    title: "Gaurav Mehta | Portfolio",
+    title: "Gaurav Mehta | Backend-Focused Full-Stack Engineer",
     description:
-      "Full-Stack Software Engineer specializing in TypeScript, Next.js, Node.js, and PostgreSQL.",
+      "Backend-focused Full-Stack Engineer building scalable backend systems, fintech infrastructure, and AI-powered workflow platforms.",
+    creator: "@gauravmehta043",
     images: ["/og-image.png"],
   },
 };

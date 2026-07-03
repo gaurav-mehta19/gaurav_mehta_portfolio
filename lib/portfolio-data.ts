@@ -45,9 +45,9 @@ export type PortfolioData = {
 
 export const portfolioData: PortfolioData = {
   name: "Gaurav Mehta",
-  role: "Full-Stack Software Engineer",
+  role: "Backend Focused Full-Stack Engineer",
   summary:
-    "Full-stack software engineer specializing in scalable backend systems, modern web applications, and AI-powered products. I build with TypeScript, Next.js, Node.js, and PostgreSQL, focusing on performance, clean architecture, and developer experience. Built fintech systems, workflow orchestration engines, and LLM-driven automation platforms, with proven impact across production-scale startups.",
+  "I build scalable backend systems, fintech infrastructure, and AI-powered workflow platforms. Experienced in designing high-performance APIs, orchestration engines, and production-grade architectures with TypeScript, Node.js, Next.js, PostgreSQL, Redis, and cloud-native tooling.",
   email: "mehta.gaurav086@gmail.com",
   resumeHref:
     "https://drive.google.com/file/d/1Rrd8f7GP5E-FPY6kAjxyeJzDtjNl62GP/view?usp=sharing",

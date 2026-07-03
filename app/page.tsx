@@ -5,6 +5,7 @@ import FooterLinks from "@/components/portfolio/FooterLinks";
 import ProjectCard from "@/components/portfolio/ProjectCard";
 import RichText from "@/components/portfolio/RichText";
 import Section from "@/components/portfolio/Section";
+import StructuredData from "@/components/portfolio/StructuredData";
 import TechIcon from "@/components/portfolio/TechIcon";
 import ThemeToggle from "@/components/portfolio/ThemeToggle";
 import { portfolioData } from "@/lib/portfolio-data";
@@ -12,6 +13,7 @@ import { portfolioData } from "@/lib/portfolio-data";
 export default function Home() {
   return (
     <main>
+      <StructuredData />
       <Container>
         <header className="header">
           <div className="header-top">
