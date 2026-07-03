@@ -657,8 +657,35 @@ a {
 
 .project-links {
   margin-top: auto;
-  padding-top: var(--space-3);
+  padding-top: var(--space-4);
   border-top: 1px dashed var(--border);
+  gap: var(--space-3);
+  flex-wrap: nowrap;
+}
+
+.project-links .text-link {
+  flex: 1;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.4rem;
+  padding: 0.7rem 1rem;
+  border: 1px solid var(--border);
+  border-radius: var(--radius-sm);
+  background: var(--surface);
+  color: var(--text-primary);
+  font-size: var(--text-sm);
+  font-weight: 600;
+  text-decoration: none;
+  transition: border-color 200ms var(--ease), background 200ms var(--ease), color 200ms var(--ease), transform 200ms var(--ease);
+}
+
+.project-links .text-link:hover {
+  border-color: var(--accent);
+  color: var(--accent);
+  background: var(--accent-soft);
+  transform: translateY(-1px);
+  text-decoration: none;
 }
 
 .project-thumb {
