@@ -1,9 +1,11 @@
+import Image from "next/image";
 import Link from "next/link";
 import Container from "@/components/portfolio/Container";
 import FooterLinks from "@/components/portfolio/FooterLinks";
 import ProjectCard from "@/components/portfolio/ProjectCard";
 import RichText from "@/components/portfolio/RichText";
 import Section from "@/components/portfolio/Section";
+import TechIcon from "@/components/portfolio/TechIcon";
 import ThemeToggle from "@/components/portfolio/ThemeToggle";
 import { portfolioData } from "@/lib/portfolio-data";
 
@@ -12,34 +14,35 @@ export default function Home() {
     <main>
       <Container>
         <header className="header">
-          <div>
-            <h1 className="name-heading">
-              {portfolioData.name}
-              <span className="name-dot">.</span>
-            </h1>
-            <p className="role">{portfolioData.role}</p>
-            <p className="availability">{portfolioData.availability}</p>
-            <p className="summary">{portfolioData.summary}</p>
+          <div className="header-top">
+            <div>
+              <h1 className="name-heading">
+                {portfolioData.name}
+                <span className="name-dot">.</span>
+              </h1>
+              <p className="role">{portfolioData.role}</p>
+            </div>
+            <div className="header-actions">
+              <ThemeToggle />
+              <Link
+                href={portfolioData.resumeHref}
+                className="pill-link"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                Resume
+              </Link>
+              <a
+                href={`https://mail.google.com/mail/?view=cm&fs=1&to=${portfolioData.email}`}
+                className="pill-link pill-accent"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                Get in touch
+              </a>
+            </div>
           </div>
-          <div className="header-actions">
-            <ThemeToggle />
-            <Link
-              href={portfolioData.resumeHref}
-              className="pill-link"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              Resume
-            </Link>
-            <a
-              href={`https://mail.google.com/mail/?view=cm&fs=1&to=${portfolioData.email}`}
-              className="pill-link pill-accent"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              Get in touch
-            </a>
-          </div>
+          <p className="summary">{portfolioData.summary}</p>
         </header>
 
         <Section title="Experience">
@@ -51,10 +54,19 @@ export default function Home() {
               >
                 <article className="exp-card">
                   <div className="exp-head">
-                    <h3 className="exp-role">
-                      {item.role}
-                      <span className="exp-company"> · {item.company}</span>
-                    </h3>
+                    <div className="exp-identity">
+                      <Image
+                        src={item.logo}
+                        alt={`${item.company} logo`}
+                        width={44}
+                        height={44}
+                        className="exp-logo"
+                      />
+                      <div>
+                        <h3 className="exp-company">{item.company}</h3>
+                        <p className="exp-role">{item.role}</p>
+                      </div>
+                    </div>
                     <span className="exp-period">{item.period}</span>
                   </div>
                   <ul className="bullet-list">
@@ -86,6 +98,7 @@ export default function Home() {
                 <div className="skills-wrap">
                   {group.items.map((skill) => (
                     <span key={skill} className="skill-chip">
+                      <TechIcon name={skill} />
                       {skill}
                     </span>
                   ))}
